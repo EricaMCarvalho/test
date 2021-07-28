@@ -7,6 +7,7 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='logo-box'></div>
+      <nav className='sm-nav'></nav>
       <nav className='nav'>
         <ul className='nav__right'>
           <li className='dropdown'>

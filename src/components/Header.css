@@ -11,6 +11,10 @@
   background-color: rgb(43, 48, 56);
 }
 
+.sm-nav {
+  display: none;
+}
+
 .nav {
   margin-right: 1rem;
   margin-left: 1rem;
@@ -67,4 +71,8 @@
 .dropdown-item:hover {
   background-color: rgb(91, 136, 194);
   color: rgb(255, 255, 255);
+}
+
+/* tablet landscape size */
+@media screen and (max-width: 75em) {
 }
