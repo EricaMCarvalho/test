@@ -76,10 +76,10 @@ const Header = () => {
               <Link className='dropdown-item' to='#'>
                 Launch
               </Link>
-              <Link className='dropdown-item' to='#'>
+              <Link className='dropdown-item' to='/applicant-settings'>
                 Applicant Settings
               </Link>
-              <Link className='dropdown-item' to='#'>
+              <Link className='dropdown-item' to='/evaluation-settings'>
                 Evaluation Settings
               </Link>
               <Link className='dropdown-item' to='#'>
