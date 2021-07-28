@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../components/Form.css';
 
 const ApplicantSettings = () => {
@@ -10,8 +11,18 @@ const ApplicantSettings = () => {
   const [redirectUrl, setRedirectUrl] = useState('');
   const [logoutUrl, setLogoutUrl] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await axios.post('/api', {
+        lockSubmitted,
+        multipleSubmissions,
+        confirmationText,
+      });
+    } catch (error) {
+      // Handle error
+    }
   };
 
   return (

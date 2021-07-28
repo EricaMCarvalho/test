@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../components/Form.css';
 
 const EvaluationSettings = () => {
   const [makeAnonymous, setMakeAnonymous] = useState(true);
   const [scoreSharing, setScoreSharing] = useState();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await axios.post('/api', {
+        makeAnonymous,
+        scoreSharing,
+      });
+    } catch (error) {
+      // Handle error
+    }
   };
 
   return (
