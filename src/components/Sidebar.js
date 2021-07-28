@@ -20,10 +20,10 @@ const Sidebar = () => {
           <Link to='#'>Launch</Link>
         </li>
         <li className='sidebar-item'>
-          <Link to='/applicant-settings'>Applicant Settings</Link>
+          <Link to='/test/applicant-settings'>Applicant Settings</Link>
         </li>
         <li className='sidebar-item'>
-          <Link to='/evaluation-settings'>Evaluation Settings</Link>
+          <Link to='/test/evaluation-settings'>Evaluation Settings</Link>
         </li>
         <li className='sidebar-item'>
           <Link to='#'>Advanced Settings</Link>

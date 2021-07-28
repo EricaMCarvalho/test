@@ -12,10 +12,10 @@ function App() {
       <div className='container'>
         <Sidebar />
         <Switch>
-          <Route exact path='/applicant-settings'>
+          <Route exact path='/test/applicant-settings'>
             <ApplicantSettings />
           </Route>
-          <Route exact path='/evaluation-settings'>
+          <Route exact path='/test/evaluation-settings'>
             <EvaluationSettings />
           </Route>
         </Switch>
