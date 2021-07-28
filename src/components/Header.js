@@ -68,13 +68,22 @@ const Header = () => {
             </Link>
             <div className='dropdown-content'>
               <Link className='dropdown-item' to='#'>
-                Link 1
+                General
               </Link>
               <Link className='dropdown-item' to='#'>
-                Link 2
+                Contact/Messaging
               </Link>
               <Link className='dropdown-item' to='#'>
-                Link 3
+                Launch
+              </Link>
+              <Link className='dropdown-item' to='#'>
+                Applicant Settings
+              </Link>
+              <Link className='dropdown-item' to='#'>
+                Evaluation Settings
+              </Link>
+              <Link className='dropdown-item' to='#'>
+                Advanced Settings
               </Link>
             </div>
           </li>
