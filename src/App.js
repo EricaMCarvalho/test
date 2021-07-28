@@ -9,15 +9,17 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Sidebar />
-      <Switch>
-        <Route exact path='/1'>
-          <ApplicantSettings />
-        </Route>
-        <Route exact path='/'>
-          <EvaluationSettings />
-        </Route>
-      </Switch>
+      <div className='container'>
+        <Sidebar />
+        <Switch>
+          <Route exact path='/applicant-settings'>
+            <ApplicantSettings />
+          </Route>
+          <Route exact path='/evaluation-settings'>
+            <EvaluationSettings />
+          </Route>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }

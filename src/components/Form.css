@@ -13,6 +13,11 @@ hr {
   margin-bottom: 3rem;
 }
 
+.form .secondary-heading,
+.form .tertiary-heading {
+  text-transform: uppercase;
+}
+
 .form label {
   display: inline-block;
   margin: 1rem 0;
