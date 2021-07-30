@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import axios from 'axios';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import ApplicantSettings from './pages/ApplicantSettings';
 import EvaluationSettings from './pages/EvaluationSettings';
 
 function App() {
+  const [program, setProgram] = useState('');
+
+  useEffect(() => {
+    const getProgram = async () => {
+      const res = await axios.get('/api/programs');
+      setProgram(res.data[0]);
+    };
+
+    getProgram();
+  }, []);
+
   return (
     <BrowserRouter>
       <Header />
@@ -13,10 +25,10 @@ function App() {
         <Sidebar />
         <Switch>
           <Route exact path='/test/applicant-settings'>
-            <ApplicantSettings />
+            <ApplicantSettings program={program} />
           </Route>
           <Route exact path='/test/evaluation-settings'>
-            <EvaluationSettings />
+            <EvaluationSettings program={program} />
           </Route>
         </Switch>
       </div>
