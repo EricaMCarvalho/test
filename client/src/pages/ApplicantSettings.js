@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Alert from '../components/Alert';
 import '../components/Form.css';
 
 const ApplicantSettings = ({ program }) => {
@@ -8,6 +9,8 @@ const ApplicantSettings = ({ program }) => {
   const [confirmationText, setConfirmationText] = useState('');
   const [redirectUrl, setRedirectUrl] = useState('');
   const [logoutUrl, setLogoutUrl] = useState('');
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setLockSubmitted(program.lockSubmitted);
@@ -26,14 +29,30 @@ const ApplicantSettings = ({ program }) => {
         multipleSubmissions,
         confirmationText,
       });
+
+      setSuccess('Settings saved successfully');
+
+      setTimeout(() => {
+        setSuccess('');
+      }, 1000);
     } catch (error) {
-      console.log(error);
+      if (error.response || error.response.data) {
+        setError(error.response.data);
+      } else {
+        setError(error.message);
+      }
+      setTimeout(() => {
+        setError('');
+      }, 1000);
     }
   };
 
   return (
     <main>
       <h1 className='primary-heading'>{program.name}</h1>
+
+      {success && <Alert variant='success'>{success}</Alert>}
+      {error && <Alert variant='danger'>{error}</Alert>}
 
       <form className='form' onSubmit={handleSubmit}>
         <h2 className='secondary-heading'>Applicant Settings</h2>

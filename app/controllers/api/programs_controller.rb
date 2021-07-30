@@ -15,7 +15,7 @@ module Api
       if @program.update(params.require(:program).permit(:name, :lockSubmitted, :multipleSubmissions, :confirmationText, :redirectUrl, :logoutUrl, :makeAnonymous, :scoreSharing))
         render json: @program
       else
-        render json: {"error": "Failed to save changes"}
+        render json: @program.errors.full_messages, :status => :bad_request
       end
     end
   end

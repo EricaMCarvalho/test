@@ -1,0 +1,11 @@
+.alert-success {
+  background-color: #d8e2dc;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
+
+.alert-danger {
+  background-color: #fec5bb;
+  padding: 2rem;
+  font-size: 1.6rem;
+}
