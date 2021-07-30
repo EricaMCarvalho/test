@@ -29,7 +29,7 @@ const EvaluationSettings = ({ program }) => {
         setSuccess('');
       }, 1000);
     } catch (error) {
-      if (error.response || error.response.data) {
+      if (error.response && error.response.data) {
         setError(error.response.data);
       } else {
         setError(error.message);
