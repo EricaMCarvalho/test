@@ -10,8 +10,8 @@ const EvaluationSettings = ({ program }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setMakeAnonymous(program.makeAnonymous);
-    setScoreSharing(program.scoreSharing);
+    setMakeAnonymous(program.makeAnonymous || false);
+    setScoreSharing(program.scoreSharing || false);
   }, [program]);
 
   const handleSubmit = async (e) => {
@@ -54,9 +54,7 @@ const EvaluationSettings = ({ program }) => {
             id='make-anonymous'
             type='checkbox'
             checked={makeAnonymous}
-            onChange={(e) =>
-              setMakeAnonymous((makeAnonymous) => !makeAnonymous)
-            }
+            onChange={(e) => setMakeAnonymous(e.target.checked)}
           />
           <label className='form-label' htmlFor='make-anonymous'>
             Make anonymous
@@ -72,7 +70,7 @@ const EvaluationSettings = ({ program }) => {
             id='score-sharing'
             type='checkbox'
             checked={scoreSharing}
-            onChange={(e) => setScoreSharing((scoreSharing) => !scoreSharing)}
+            onChange={(e) => setScoreSharing(e.target.checked)}
           />
 
           <label htmlFor='score-sharing'>Score sharing</label>

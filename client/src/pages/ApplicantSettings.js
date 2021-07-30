@@ -4,8 +4,8 @@ import Alert from '../components/Alert';
 import '../components/Form.css';
 
 const ApplicantSettings = ({ program }) => {
-  const [lockSubmitted, setLockSubmitted] = useState();
-  const [multipleSubmissions, setMultipleSubmissions] = useState();
+  const [lockSubmitted, setLockSubmitted] = useState(false);
+  const [multipleSubmissions, setMultipleSubmissions] = useState(false);
   const [confirmationText, setConfirmationText] = useState('');
   const [redirectUrl, setRedirectUrl] = useState('');
   const [logoutUrl, setLogoutUrl] = useState('');
@@ -13,11 +13,11 @@ const ApplicantSettings = ({ program }) => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    setLockSubmitted(program.lockSubmitted);
-    setMultipleSubmissions(program.multipleSubmissions);
-    setConfirmationText(program.confirmationText);
-    setRedirectUrl(program.redirectUrl);
-    setLogoutUrl(program.logoutUrl);
+    setLockSubmitted(program.lockSubmitted || false);
+    setMultipleSubmissions(program.multipleSubmissions || false);
+    setConfirmationText(program.confirmationText || '');
+    setRedirectUrl(program.redirectUrl || '');
+    setLogoutUrl(program.logoutUrl || '');
   }, [program]);
 
   const handleSubmit = async (e) => {
@@ -28,6 +28,8 @@ const ApplicantSettings = ({ program }) => {
         lockSubmitted,
         multipleSubmissions,
         confirmationText,
+        redirectUrl,
+        logoutUrl,
       });
 
       setSuccess('Settings saved successfully');
@@ -61,9 +63,7 @@ const ApplicantSettings = ({ program }) => {
             id='lock-submitted'
             type='checkbox'
             checked={lockSubmitted}
-            onChange={(e) =>
-              setLockSubmitted((lockSubmitted) => !lockSubmitted)
-            }
+            onChange={(e) => setLockSubmitted(e.target.checked)}
           />
           <label className='form-label' htmlFor='lock-submitted'>
             Lock submitted
@@ -80,11 +80,7 @@ const ApplicantSettings = ({ program }) => {
             id='multiple-submissions'
             type='checkbox'
             checked={multipleSubmissions}
-            onChange={(e) =>
-              setMultipleSubmissions(
-                (multipleSubmissions) => !multipleSubmissions
-              )
-            }
+            onChange={(e) => setMultipleSubmissions(e.target.checked)}
           />
 
           <label htmlFor='multiple-submissions'>

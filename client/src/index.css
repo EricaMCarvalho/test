@@ -50,3 +50,9 @@ a {
 .tertiary-heading {
   font-size: 1.6rem;
 }
+
+.text {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  line-height: 1.7;
+}

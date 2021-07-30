@@ -11,7 +11,7 @@ const Sidebar = () => {
       </h2>
       <ul>
         <li className='sidebar-item'>
-          <Link to='#'>General</Link>
+          <Link to='/'>General</Link>
         </li>
         <li className='sidebar-item'>
           <Link to='#'>Contact/Messaging</Link>
