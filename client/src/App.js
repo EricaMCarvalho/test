@@ -11,8 +11,12 @@ function App() {
 
   useEffect(() => {
     const getProgram = async () => {
-      const res = await axios.get('/api/programs');
-      setProgram(res.data[0]);
+      try {
+        const res = await axios.get('/api/programs');
+        setProgram(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     getProgram();
@@ -24,10 +28,10 @@ function App() {
       <div className='container'>
         <Sidebar />
         <Switch>
-          <Route exact path='/test/applicant-settings'>
+          <Route exact path='/applicant-settings'>
             <ApplicantSettings program={program} />
           </Route>
-          <Route exact path='/test/evaluation-settings'>
+          <Route exact path='/evaluation-settings'>
             <EvaluationSettings program={program} />
           </Route>
         </Switch>

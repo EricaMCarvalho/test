@@ -1,35 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../components/Form.css';
 
-const ApplicantSettings = () => {
-  const [lockSubmitted, setLockSubmitted] = useState(true);
+const ApplicantSettings = ({ program }) => {
+  const [lockSubmitted, setLockSubmitted] = useState();
   const [multipleSubmissions, setMultipleSubmissions] = useState();
-  const [confirmationText, setConfirmationText] = useState(
-    'Thank you for applying!'
-  );
+  const [confirmationText, setConfirmationText] = useState('');
   const [redirectUrl, setRedirectUrl] = useState('');
   const [logoutUrl, setLogoutUrl] = useState('');
+
+  useEffect(() => {
+    setLockSubmitted(program.lockSubmitted);
+    setMultipleSubmissions(program.multipleSubmissions);
+    setConfirmationText(program.confirmationText);
+    setRedirectUrl(program.redirectUrl);
+    setLogoutUrl(program.logoutUrl);
+  }, [program]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('/api', {
+      await axios.put(`/api/programs/${program.id}`, {
         lockSubmitted,
         multipleSubmissions,
         confirmationText,
       });
     } catch (error) {
-      // Handle error
+      console.log(error);
     }
   };
 
   return (
     <main>
-      <h1 className='primary-heading'>
-        2021 Example Organization Scholarship Program
-      </h1>
+      <h1 className='primary-heading'>{program.name}</h1>
 
       <form className='form' onSubmit={handleSubmit}>
         <h2 className='secondary-heading'>Applicant Settings</h2>

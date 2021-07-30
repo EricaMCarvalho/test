@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../components/Form.css';
 
-const EvaluationSettings = () => {
-  const [makeAnonymous, setMakeAnonymous] = useState(true);
-  const [scoreSharing, setScoreSharing] = useState();
+const EvaluationSettings = ({ program }) => {
+  const [makeAnonymous, setMakeAnonymous] = useState(false);
+  const [scoreSharing, setScoreSharing] = useState(false);
+
+  useEffect(() => {
+    setMakeAnonymous(program.makeAnonymous);
+    setScoreSharing(program.scoreSharing);
+  }, [program]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post('/api', {
+      await axios.put(`/api/programs/${program.id}`, {
         makeAnonymous,
         scoreSharing,
       });
     } catch (error) {
-      // Handle error
+      console.log(error);
     }
   };
 
   return (
     <main>
-      <h1 className='primary-heading'>
-        2021 Example Organization Scholarship Program
-      </h1>
+      <h1 className='primary-heading'>{program.name}</h1>
 
       <form className='form' onSubmit={handleSubmit}>
         <h2 className='secondary-heading'>Evaluation Settings</h2>
