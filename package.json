@@ -1,0 +1,25 @@
+{
+  "name": "smarterselect",
+  "version": "1.0.0",
+  "description": "[Deployed](https://ericamcarvalho.github.io/test/)",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "cd client && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/.public/",
+    "postinstall": "npm run build && npm run deploy && echo 'Client built"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricaMCarvalho/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EricaMCarvalho/test/issues"
+  },
+  "homepage": "https://github.com/EricaMCarvalho/test#readme"
+}
