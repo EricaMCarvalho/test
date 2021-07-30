@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Program.create(name: "2021 Example Organi]ation Scholarship Program", lockSubmitted: true, multipleSubmissions: false, confirmationText: "Thank you for applying!", redirectUrl: "", logoutUrl: "", makeAnonymous: true, scoreSharing: false)
+Program.create(name: "2021 Example Organization Scholarship Program", lockSubmitted: true, multipleSubmissions: false, confirmationText: "Thank you for applying!", redirectUrl: "", logoutUrl: "", makeAnonymous: true, scoreSharing: false)
