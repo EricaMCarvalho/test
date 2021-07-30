@@ -30,4 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      program:
+        confirmationText: 'Confirmation text'
+        redirectUrl: 'Redirect url'
+        logoutUrl: 'Logout url'
